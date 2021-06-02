@@ -1,0 +1,75 @@
+<!doctype html>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap" rel="stylesheet"><html>
+<head>
+  <title>LingoRank Tesla's Difficulty Prediction</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="content">
+        <div>
+            <h1 style="color: #23d1b4; font-weight: 800; margin-top: 40px;">LingoRank Prediction</h1>
+            <h3>Group Tesla</h1>
+        </div>
+        <div class="row">    
+            <h4>Enter a french sentence and you will get a prediction of it's difficulty !</h4>
+        </div>
+        <div class="container">
+            <div class="item">
+                <form action={{ url_for("root")}} method="POST">
+                    <textarea name="textinput" cols="40" rows="4" placeholder="Type your sentence here !"></textarea>
+                    <br>
+                    <input type = "submit" value = "Submit" />
+                </form>
+            </div>
+            <div class="item" style ="font-weight: 600;">
+                <table>
+                    <tbody>
+                        <tr style="color: rgb(86, 205, 0);">
+                            <td>A1</td>
+                            <td>{{result_list[0]}}%</td>
+                            <td><progress class="progress-a1" value={{result_list[0]}} max="100"></progress></td>
+                        </tr>
+                        <tr style="color: rgb(158, 214, 1);">
+                            <td>A2</td>
+                            <td>{{result_list[1]}}%</td>
+                            <td><progress class="progress-a2" value={{result_list[1]}} max="100"></progress></td>
+                        </tr>
+                        <tr style="color: rgb(255, 175, 1);">
+                            <td>B1</td>
+                            <td>{{result_list[2]}}%</td>
+                            <td><progress class="progress-b1" value={{result_list[2]}} max="100"></progress></td>
+                        </tr>
+                        <tr style="color: rgb(255, 122, 1);">
+                            <td>B2</td>
+                            <td>{{result_list[3]}}%</td>
+                            <td><progress class="progress-b2" value={{result_list[3]}} max="100"></progress></td>
+                        </tr>
+                        <tr style="color: rgb(235, 50, 50);">
+                            <td>C1</td>
+                            <td>{{result_list[4]}}%</td>
+                            <td><progress class="progress-c1" value={{result_list[4]}} max="100"></progress></td>
+                        </tr>
+                        <tr style="color: rgba(121, 0, 0, 0.897);">
+                            <td>C2</td>
+                            <td>{{result_list[5]}}%</td>
+                            <td><progress class="progress-c2" value={{result_list[5]}} max="100"></progress></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+        {{given_sentence}}<strong>{{result}}</strong>
+        <div class="container">
+            <div class="footer">
+                <p>This tool provides a basic prediction of the difficulty of a given sentence in French, according to the CEFR proficiency levels (A1 being to easiest to understand and C2 the hardest).
+                The prediction is based Google AutoML Natural Language machine learning model which was trained with 4800 sample sentences.
+                The estimation is shown on the right side for each level, showing which one is the most likely to be correct.
+                You can learn more about the project on the project's <a href="https://github.com/TetraFaal/Big-Scale-Analytics-2021-Tesla" style="color:#23d1b4">GitHub</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
