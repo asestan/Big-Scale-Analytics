@@ -246,7 +246,7 @@ Here's how the repo is organized :
 You can try the model that was built with Google AutoML by following [this link](https://massive-incline-305713.appspot.com/) to our web app.
 Here is the [AutoML API endpoint](https://automl.googleapis.com/v1/projects/79067930854/locations/us-central1/models/TCN6320175355386658816:predict) (authentification token needed)
 
-##Video
+## Video
 
 You can find the video [here](https://youtu.be/KrqHYU_0U04)
 
